@@ -7,9 +7,9 @@ export const InputContainer = styled.div`
   grid-area: ${props => props.gridArea};
   input[type="range"] {
     -webkit-appearance: none;
-
     appearance: none;
     background: transparent;
+    width: 100px;
     height: 20px;
     overflow: hidden;
     background-color: rgb(51, 50, 50);
@@ -19,9 +19,9 @@ export const InputContainer = styled.div`
 
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    border-radius: 16px;
     background-color: rgb(176, 162, 253);
     cursor: pointer;
     border: 4px solid #333;
@@ -30,9 +30,9 @@ export const InputContainer = styled.div`
 
   input[type="range"]::-moz-range-thumb {
     -moz-appearance: none;
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    border-radius: 16px;
     background-color: rgb(176, 162, 253);
     cursor: pointer;
     border: 4px solid #333;
@@ -43,8 +43,8 @@ export const InputContainer = styled.div`
     -moz-appearance: none;
     appearance: none;
     -ms-progress-appearance: none;
-    height: 25px;
-    width: 25px;
+    height: 15px;
+    width: 15px;
     border-radius: 50%;
     background-color: rgb(176, 162, 253);
     cursor: pointer;

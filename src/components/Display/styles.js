@@ -1,16 +1,23 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin: 0 auto;
-  width: 600px;
-  align-self: center;
-  justify-self: center;
-  height: 200px;
+  margin: 1rem auto;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 
-  input {
+  .button-container {
+    display: flex;
+    gap: 8px;
+  }
+
+  textarea {
+    resize: none;
     font-family: "Poppins";
-    font-size: 18px;
+    font-size: 14px;
     width: 100%;
+    height: max-content;
     padding: 10px;
     background-color: whitesmoke;
     border: none;
@@ -24,17 +31,13 @@ export const Container = styled.div`
     align-items: center;
     background-color: violet;
   }
-  .options input {
-    width: 8%;
-    vertical-align: middle;
-    line-height: 1;
-  }
 `;
 
 export const Button = styled.button`
   font-family: "Poppins";
   border: none;
   width: 100%;
+  border-radius: 6px;
   padding: 10px;
   font-weight: 700;
   background-color: rgb(255, 230, 0);

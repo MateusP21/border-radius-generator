@@ -1,11 +1,21 @@
 import styled from "styled-components";
 
 export const Grid = styled.div`
-  margin: 0 auto;
+  margin: 1rem auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: rgba(0, 10, 10, 0.3);
+  margin-top: 1rem;
+  border-radius: 6px;
+  height: max-content;
+
+  .title {
+    margin-top: 1rem;
+    font-size: 36px;
+    color: white;
+  }
 
   #bt-left {
     grid-area: bt-lf;
@@ -54,9 +64,9 @@ export const Grid = styled.div`
     grid-template-columns: 200px 1fr 200px;
     grid-template-rows: 200px 1fr 200px;
 
-    div {
+    & > div {
       display: flex;
-      justify-content: flex-start;
+      justify-content: flex-end;
       align-items: center;
     }
   }
@@ -70,9 +80,8 @@ export const Box = styled.div`
     rgba(245, 168, 168, 1) 4%,
     rgba(164, 168, 248, 1) 100.2%
   );
-  width: 200px;
-  height: 200px;
-
+  width: 150px;
+  height: 150px;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 `;

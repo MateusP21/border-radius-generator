@@ -8,19 +8,21 @@ export default function Display() {
   );
   return (
     <Container>
-      <input
+      <textarea
         type="text"
         value={` border-radius:${
           check ? borderRadius : borderRadius.split("/")[0]
         } `}
         disabled
       />
-      <Button check={check} onClick={handleCheck} type="button">
-        8 Lados
-      </Button>
-      <Button type="submit" onClick={handleClipboard}>
-        COPY
-      </Button>
+      <div className="button-container">
+        <Button check={check} onClick={handleCheck} type="button">
+          8 Lados
+        </Button>
+        <Button type="submit" onClick={handleClipboard}>
+          COPY
+        </Button>
+      </div>
     </Container>
   );
 }

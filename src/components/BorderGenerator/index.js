@@ -29,6 +29,7 @@ export default function BorderGenerator() {
 
   return (
     <Grid>
+      <h1 className="title">Border Radius Generator</h1>
       <div className="box-container">
         <InputRanger
           gridArea="tp-lf"
