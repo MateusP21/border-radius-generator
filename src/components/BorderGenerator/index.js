@@ -7,26 +7,22 @@ import Display from '../Display';
 
 export default function BorderGenerator() {
   const {
+    borderRadiusObject,
+    borderRadius,
+    handleBorderRadius,
+    check,
+  } = useContext(GeneratorContext);
+
+  const {
     topLeft,
     topRight,
     bottomLeft,
     bottomRight,
     topLeftVertical,
-    topRightVertical,
     bottomLeftVertical,
     bottomRightVertical,
-    handleTopLeft,
-    handleTopRight,
-    handleBottomLeft,
-    handleBottomRight,
-    handleTopLeftVertical,
-    handleTopRightVertical,
-    handleBottomLeftVertical,
-    handleBottomRightVertical,
-    borderRadius,
-    check,
-  } = useContext(GeneratorContext);
-
+    topRightVertical,
+  } = borderRadiusObject;
   return (
     <Grid>
       <h1 className="title">Border Radius </h1>
@@ -35,13 +31,15 @@ export default function BorderGenerator() {
           gridArea="tp-lf"
           rotate="45deg"
           value={topLeft}
-          setRange={handleTopLeft}
+          name="topLeft"
+          setRange={handleBorderRadius}
         />
         <InputRanger
           gridArea="tp-rg"
           rotate="135deg"
+          name="topRight"
           value={topRight}
-          setRange={handleTopRight}
+          setRange={handleBorderRadius}
         />
         {check && (
           <>
@@ -49,28 +47,32 @@ export default function BorderGenerator() {
               <InputRanger
                 gridArea=""
                 rotate=""
+                name="topLeftVertical"
                 value={topLeftVertical}
-                setRange={handleTopLeftVertical}
+                setRange={handleBorderRadius}
               />
               <InputRanger
                 gridArea=""
                 rotate=""
+                name="bottomLeftVertical"
                 value={bottomLeftVertical}
-                setRange={handleBottomLeftVertical}
+                setRange={handleBorderRadius}
               />
             </div>
             <div className="right-vertical">
               <InputRanger
                 gridArea=""
                 rotate=""
+                name="topRightVertical"
                 value={topRightVertical}
-                setRange={handleTopRightVertical}
+                setRange={handleBorderRadius}
               />
               <InputRanger
                 gridArea=""
                 rotate=""
+                name="bottomRightVertical"
                 value={bottomRightVertical}
-                setRange={handleBottomRightVertical}
+                setRange={handleBorderRadius}
               />
             </div>
           </>
@@ -87,14 +89,16 @@ export default function BorderGenerator() {
         <InputRanger
           gridArea="bt-lf"
           rotate="-45deg"
+          name="bottomLeft"
           value={bottomLeft}
-          setRange={handleBottomLeft}
+          setRange={handleBorderRadius}
         />
         <InputRanger
           gridArea="bt-rg"
           rotate="-135deg"
+          name="bottomRight"
           value={bottomRight}
-          setRange={handleBottomRight}
+          setRange={handleBorderRadius}
         />
       </div>
       <Display />

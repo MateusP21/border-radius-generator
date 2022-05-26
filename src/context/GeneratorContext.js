@@ -1,89 +1,69 @@
-import React, { useState, createContext } from 'react';
+import React, {
+  useState, createContext, useEffect, useMemo,
+} from 'react';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 
 export const GeneratorContext = createContext();
 
-export const GeneratorProvider = ({ children }) => {
+export function GeneratorProvider({ children }) {
+  const [borderRadius, setBorderRadius] = useState('100% 100% 100% 100% / 100% 100% 100% 100% ');
+  const [borderRadiusObject, setBorderRadiusObject] = useState({
+    topLeft: 100,
+    topRight: 100,
+    topLeftVertical: 100,
+    topRightVertical: 100,
+    bottomLeft: 100,
+    bottomRight: 100,
+    bottomLeftVertical: 100,
+    bottomRightVertical: 100,
+  });
   const [check, setCheck] = useState(false);
-  const [topLeft, setTopLeft] = useState(100);
-  const [topRight, setTopRight] = useState(100);
-  const [topLeftVertical, setTopLeftVertical] = useState(100);
-  const [topRightVertical, setTopRightVertical] = useState(100);
-  const [bottomLeft, setBottomLeft] = useState(42);
-  const [bottomRight, setBottomRight] = useState(100);
-  const [bottomLeftVertical, setBottomLeftVertical] = useState(100);
-  const [bottomRightVertical, setBottomRightVertical] = useState(100);
+  useEffect(() => {
+    const {
+      topLeft, topRight, topLeftVertical, topRightVertical,
+      bottomLeft,
+      bottomRight,
+      bottomLeftVertical,
+      bottomRightVertical,
+    } = borderRadiusObject;
+    setBorderRadius(` ${topLeft}% ${topRight}% ${bottomRight}% ${bottomLeft}% / ${topLeftVertical}% ${topRightVertical}% ${bottomRightVertical}% ${bottomLeftVertical}% `);
+  }, [borderRadiusObject]);
 
-  const borderRadius = ` ${topLeft}% ${topRight}% ${bottomRight}% ${bottomLeft}% / ${topLeftVertical}% ${topRightVertical}% ${bottomRightVertical}% ${bottomLeftVertical}% `;
-
-  function handleTopLeft(value) {
-    setTopLeft(value);
-  }
-  function handleTopRight(value) {
-    setTopRight(value);
-  }
-  function handleBottomLeft(value) {
-    setBottomLeft(value);
-  }
-  function handleBottomRight(value) {
-    setBottomRight(value);
-  }
-
-  function handleTopLeftVertical(value) {
-    setTopLeftVertical(value);
-  }
-
-  function handleTopRightVertical(value) {
-    setTopRightVertical(value);
-  }
-
-  function handleBottomLeftVertical(value) {
-    setBottomLeftVertical(value);
-  }
-
-  function handleBottomRightVertical(value) {
-    setBottomRightVertical(value);
+  function handleBorderRadius({ target }) {
+    const { name, value } = target;
+    setBorderRadiusObject({
+      ...borderRadiusObject,
+      [name]: value,
+    });
   }
 
   function handleClipboard() {
     navigator.clipboard.writeText(`border-radius: ${borderRadius};`);
-    toast.success(`😊 Copiado com Sucesso`);
+    toast.success('😊 Copiado com Sucesso');
   }
 
   function handleCheck() {
     setCheck(!check);
   }
 
+  const context = useMemo(() => ({
+    handleClipboard,
+    borderRadius,
+    handleCheck,
+    check,
+    handleBorderRadius,
+    borderRadiusObject,
+  }), [borderRadiusObject, check]);
+
   return (
     <GeneratorContext.Provider
-      value={{
-        topLeft,
-        topRight,
-        bottomLeft,
-        bottomRight,
-        topLeftVertical,
-        topRightVertical,
-        bottomLeftVertical,
-        bottomRightVertical,
-        handleTopLeft,
-        handleTopRight,
-        handleBottomLeft,
-        handleBottomRight,
-        handleTopLeftVertical,
-        handleTopRightVertical,
-        handleBottomLeftVertical,
-        handleBottomRightVertical,
-        handleClipboard,
-        borderRadius,
-        handleCheck,
-        check,
-      }}
+      value={context}
     >
       {children}
     </GeneratorContext.Provider>
   );
-};
+}
 
 export default GeneratorProvider;
 
