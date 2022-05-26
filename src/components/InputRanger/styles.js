@@ -1,10 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const InputContainer = styled.div`
-  transform: ${props => `
+const InputContainer = styled.div`
+  transform: ${(props) => `
        rotate(${props.rotate});
     `};
-  grid-area: ${props => props.gridArea};
+  grid-area: ${(props) => props.gridArea};
   input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
@@ -52,3 +52,5 @@ export const InputContainer = styled.div`
     box-shadow: -407px 0 0 400px #eee;
   }
 `;
+
+export default InputContainer;

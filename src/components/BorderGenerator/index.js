@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 
-import { GeneratorContext } from "../../context/GeneratorContext";
-import InputRanger from "../InputRanger";
-import { Grid, Box } from "./styles";
-import Display from "../Display";
+import { GeneratorContext } from '../../context/GeneratorContext';
+import InputRanger from '../InputRanger';
+import { Grid, Box } from './styles';
+import Display from '../Display';
 
 export default function BorderGenerator() {
   const {
@@ -24,12 +24,12 @@ export default function BorderGenerator() {
     handleBottomLeftVertical,
     handleBottomRightVertical,
     borderRadius,
-    check
+    check,
   } = useContext(GeneratorContext);
 
   return (
     <Grid>
-      <h1 className="title">Border Radius Generator</h1>
+      <h1 className="title">Border Radius </h1>
       <div className="box-container">
         <InputRanger
           gridArea="tp-lf"
@@ -78,7 +78,9 @@ export default function BorderGenerator() {
 
         <Box
           style={{
-            borderRadius: `${check ? borderRadius : borderRadius.split("/")[0]}`
+            borderRadius: `${
+              check ? borderRadius : borderRadius.split('/')[0]
+            }`,
           }}
         />
 

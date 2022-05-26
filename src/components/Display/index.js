@@ -3,8 +3,10 @@ import { GeneratorContext } from '../../context/GeneratorContext';
 import { Container, Button } from './styles';
 
 export default function Display() {
-  const { handleClipboard, borderRadius, handleCheck, check } = useContext(
-    GeneratorContext
+  const {
+    handleClipboard, borderRadius, handleCheck, check,
+  } = useContext(
+    GeneratorContext,
   );
   return (
     <Container>

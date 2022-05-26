@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   margin: 1rem auto;
@@ -14,7 +14,7 @@ export const Container = styled.div`
 
   textarea {
     resize: none;
-    font-family: "Poppins";
+    font-family: 'Poppins';
     font-size: 14px;
     width: 100%;
     height: max-content;
@@ -34,7 +34,7 @@ export const Container = styled.div`
 `;
 
 export const Button = styled.button`
-  font-family: "Poppins";
+  font-family: 'Poppins';
   border: none;
   width: 100%;
   border-radius: 6px;
@@ -44,20 +44,17 @@ export const Button = styled.button`
   cursor: pointer;
 
   transition: 0.5s all;
-  &[type="submit"]:hover {
+  &[type='submit']:hover {
     background-color: rgb(80, 255, 57);
     color: white;
   }
 
-  &[type="button"] {
-    background: ${props =>
-      props.check === true
-        ? "linear-gradient(to right, #396afc, #2948ff); "
-        : "#eee"};
-    color: ${props => (props.check === true ? "#fff" : "#282828")};
+  &[type='button'] {
+    background: ${({ check }) => (check ? 'linear-gradient(to right, #396afc, #2948ff); ' : '#eee')};
+    color: ${(props) => (props.check === true ? '#fff' : '#282828')};
   }
 
-  &[type="button"]:hover {
+  &[type='button']:hover {
     background-color: #ddd;
   }
 `;
