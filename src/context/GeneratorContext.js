@@ -1,6 +1,6 @@
-import React, { useState, createContext } from "react";
-import { toast } from "react-toastify";
-import PropTypes from "prop-types";
+import React, { useState, createContext } from 'react';
+import { toast } from 'react-toastify';
+import PropTypes from 'prop-types';
 
 export const GeneratorContext = createContext();
 
@@ -48,7 +48,7 @@ export const GeneratorProvider = ({ children }) => {
 
   function handleClipboard() {
     navigator.clipboard.writeText(`border-radius: ${borderRadius};`);
-    toast.success("😊 Copiado com Sucesso");
+    toast.success(`😊 Copiado com Sucesso`);
   }
 
   function handleCheck() {
@@ -77,7 +77,7 @@ export const GeneratorProvider = ({ children }) => {
         handleClipboard,
         borderRadius,
         handleCheck,
-        check
+        check,
       }}
     >
       {children}
@@ -88,5 +88,5 @@ export const GeneratorProvider = ({ children }) => {
 export default GeneratorProvider;
 
 GeneratorProvider.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
 };

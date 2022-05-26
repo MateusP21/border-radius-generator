@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Grid = styled.div`
   margin: 1rem auto;
@@ -14,6 +14,7 @@ export const Grid = styled.div`
   .title {
     margin-top: 1rem;
     font-size: 36px;
+    padding: 0 1rem;
     color: white;
   }
 
@@ -40,14 +41,14 @@ export const Grid = styled.div`
   .right-vertical {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    gap: 32px;
     align-items: center;
     grid-area: left-vertical;
     transform: rotate(90deg);
   }
   .left-vertical input,
   .right-vertical input {
-    width: 80%;
+    width: 60px;
   }
 
   .left-vertical .right-vertical {
@@ -60,9 +61,9 @@ export const Grid = styled.div`
   }
   .box-container {
     display: grid;
-    grid-template-areas: "tp-lf . tp-rg" "left-vertical box right-vertical" "bt-lf . bt-rg";
-    grid-template-columns: 200px 1fr 200px;
-    grid-template-rows: 200px 1fr 200px;
+    grid-template-areas: 'tp-lf . tp-rg' 'left-vertical box right-vertical' 'bt-lf . bt-rg';
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 
     & > div {
       display: flex;

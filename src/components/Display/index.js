@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { GeneratorContext } from "../../context/GeneratorContext";
-import { Container, Button } from "./styles";
+import React, { useContext } from 'react';
+import { GeneratorContext } from '../../context/GeneratorContext';
+import { Container, Button } from './styles';
 
 export default function Display() {
   const { handleClipboard, borderRadius, handleCheck, check } = useContext(
@@ -11,7 +11,7 @@ export default function Display() {
       <textarea
         type="text"
         value={` border-radius:${
-          check ? borderRadius : borderRadius.split("/")[0]
+          check ? borderRadius : borderRadius.split('/')[0]
         } `}
         disabled
       />
