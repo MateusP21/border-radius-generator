@@ -40,20 +40,14 @@ export const Grid = styled.div`
   .left-vertical,
   .right-vertical {
     display: flex;
-    flex-direction: row;
-    gap: 32px;
+    flex-direction: column;
+    gap: 16px;
     align-items: center;
-    grid-area: left-vertical;
     transform: rotate(90deg);
-  }
-  .left-vertical input,
-  .right-vertical input {
-    width: 60px;
   }
 
-  .left-vertical .right-vertical {
-    grid-area: right-vertical;
-    transform: rotate(90deg);
+  .left-vertical {
+    grid-area: left-vertical;
   }
 
   .right-vertical {
@@ -67,7 +61,7 @@ export const Grid = styled.div`
 
     & > div {
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       align-items: center;
     }
   }
