@@ -1,5 +1,5 @@
 import React, {
-  useState, createContext, useEffect, useMemo,
+  useState, createContext, useMemo,
 } from 'react';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 export const GeneratorContext = createContext();
 
 export function GeneratorProvider({ children }) {
-  const [borderRadius, setBorderRadius] = useState('100% 100% 100% 100% / 100% 100% 100% 100% ');
   const [borderRadiusObject, setBorderRadiusObject] = useState({
     topLeft: 100,
     topRight: 100,
@@ -19,16 +18,15 @@ export function GeneratorProvider({ children }) {
     bottomRightVertical: 100,
   });
   const [check, setCheck] = useState(false);
-  useEffect(() => {
-    const {
-      topLeft, topRight, topLeftVertical, topRightVertical,
-      bottomLeft,
-      bottomRight,
-      bottomLeftVertical,
-      bottomRightVertical,
-    } = borderRadiusObject;
-    setBorderRadius(` ${topLeft}% ${topRight}% ${bottomRight}% ${bottomLeft}% / ${topLeftVertical}% ${topRightVertical}% ${bottomRightVertical}% ${bottomLeftVertical}% `);
-  }, [borderRadiusObject]);
+
+  const {
+    topLeft, topRight, topLeftVertical, topRightVertical,
+    bottomLeft,
+    bottomRight,
+    bottomLeftVertical,
+    bottomRightVertical,
+  } = borderRadiusObject;
+  const borderRadius = (` ${topLeft}% ${topRight}% ${bottomRight}% ${bottomLeft}% / ${topLeftVertical}% ${topRightVertical}% ${bottomRightVertical}% ${bottomLeftVertical}% `);
 
   function handleBorderRadius({ target }) {
     const { name, value } = target;
