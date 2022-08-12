@@ -3,7 +3,10 @@
 
 Projeto criado com finalidade de gerar border-radius para programadores preguiçosos.
 
+![App](./app.gif)
+
 [Versão online aqui!!](https://brave-payne-33e73c.netlify.app/)
+
 
 ## Instalando  🚀
 Clone o repositorio:
