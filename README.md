@@ -1,12 +1,13 @@
 
 # Border Radius Generator
 
-Projeto criado com finalidade de gerar border-radius para programadores preguiçosos.
-
 ![App](./app.gif)
 
 [Versão online aqui!!](https://brave-payne-33e73c.netlify.app/)
 
+## Contexto
+
+Esse projeto foi feito com a ideia de tornar visual o uso da propriedade border-radius do CSS, podendo controlar todos lados do objeto , assim facilitando a vida do programador front-end.
 
 ## Instalando  🚀
 Clone o repositorio:
